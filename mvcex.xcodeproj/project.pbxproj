@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		633DD9DA1E65411D008E69A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD9D91E65411D008E69A4 /* AppDelegate.swift */; };
+		63642A821E676E95003F04BA /* 03-DiscountCalculator.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 63642A811E676E95003F04BA /* 03-DiscountCalculator.pdf */; };
 		638711A91E6530100018DFD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638711A71E6530100018DFD2 /* Main.storyboard */; };
 		638711AB1E6530100018DFD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638711AA1E6530100018DFD2 /* Assets.xcassets */; };
 		638711AE1E6530100018DFD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638711AC1E6530100018DFD2 /* LaunchScreen.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		633DD9D91E65411D008E69A4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		63642A811E676E95003F04BA /* 03-DiscountCalculator.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "03-DiscountCalculator.pdf"; sourceTree = "<group>"; };
 		638711A01E65300F0018DFD2 /* mvcex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvcex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638711A81E6530100018DFD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		638711AA1E6530100018DFD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		638711A21E65300F0018DFD2 /* mvcex */ = {
 			isa = PBXGroup;
 			children = (
+				63642A811E676E95003F04BA /* 03-DiscountCalculator.pdf */,
 				633DD9D91E65411D008E69A4 /* AppDelegate.swift */,
 				638711A71E6530100018DFD2 /* Main.storyboard */,
 				638711AA1E6530100018DFD2 /* Assets.xcassets */,
@@ -127,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63642A821E676E95003F04BA /* 03-DiscountCalculator.pdf in Resources */,
 				638711AE1E6530100018DFD2 /* LaunchScreen.storyboard in Resources */,
 				638711AB1E6530100018DFD2 /* Assets.xcassets in Resources */,
 				638711A91E6530100018DFD2 /* Main.storyboard in Resources */,

@@ -1,6 +1,6 @@
 //
 //  ResultsViewController.swift
-//  mvcex
+//  cpsc411-as3
 //
 //  Created by CampusUser on 2/27/17.
 //  Copyright © 2017 pdbarnes. All rights reserved.

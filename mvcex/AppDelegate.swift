@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  as2-BMIcalculator
+//  cpsc411-as3
 //
-//  Created by pdbarnes on 2/21/17.
+//  Created by pdbarnes on 2/27/17.
 //  Copyright © 2017 pdbarnes. All rights reserved.
 //
 
