@@ -155,7 +155,7 @@
                         <viewControllerLayoutGuide type="top" id="rXa-Zt-6BC"/>
                         <viewControllerLayoutGuide type="bottom" id="HFp-DL-M3I"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZnM-PB-9u2">
+                    <view key="view" contentMode="scaleToFill" id="ZnM-PB-9u2" customClass="GraphView" customModule="cpsc411_as3" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
