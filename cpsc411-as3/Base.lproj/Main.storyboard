@@ -140,6 +140,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Calculator" id="NUd-dl-NIH"/>
                     <connections>
+                        <outlet property="field_discount_flat" destination="WOQ-uy-rvh" id="Vwi-zY-BX2"/>
+                        <outlet property="field_discount_pct" destination="wL6-Ec-Mc5" id="Yb3-ym-LtA"/>
+                        <outlet property="field_discount_pct_other" destination="t5e-6C-cMi" id="4Ag-FV-AgS"/>
+                        <outlet property="field_price" destination="ZWe-k2-xOI" id="KZN-5s-Vn6"/>
+                        <outlet property="field_tax" destination="3xD-Om-A4t" id="mdV-pa-hiw"/>
+                        <outlet property="lbl_discounted" destination="vXL-Mf-HxY" id="bSg-v6-St2"/>
+                        <outlet property="lbl_original" destination="VPf-u1-LDd" id="gcb-ac-zmO"/>
                         <segue destination="BoA-uE-efq" kind="show" identifier="showResults" id="1nh-vK-at4"/>
                     </connections>
                 </viewController>
