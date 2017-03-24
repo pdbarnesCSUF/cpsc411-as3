@@ -42,7 +42,7 @@ class CalcData
     {
         let tax = price * tax_pct
         cost_original = price + tax
-        cost_discounted = price - (price * discount_pct) - (price * discount_pct_other) - discount_flat
+        cost_discounted = price - (price * discount_pct) - (price * discount_pct_other) - discount_flat + tax
         cost_saved = cost_original - cost_discounted
     }
 }
