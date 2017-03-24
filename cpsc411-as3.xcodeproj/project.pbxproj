@@ -76,8 +76,7 @@
 				63D5FC391E779A8800F8645D /* GraphView.swift */,
 				63D5FC3B1E77A5C100F8645D /* Model.swift */,
 			);
-			name = "cpsc411-as3";
-			path = mvcex;
+			path = "cpsc411-as3";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
