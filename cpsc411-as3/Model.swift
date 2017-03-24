@@ -42,7 +42,16 @@ class CalcData
     {
         let tax = price * tax_pct
         cost_original = price + tax
-        cost_discounted = price - (price * discount_pct) - (price * discount_pct_other) - discount_flat + tax
+        cost_discounted = price - (price * discount_pct) - (price * discount_pct_other) - discount_flat
+        //CA law
+        if (cost_discounted <= 0.0)
+        {
+            cost_discounted = tax //just tax
+        }
+        else
+        {
+            cost_discounted += tax
+        }
         cost_saved = cost_original - cost_discounted
     }
 }
