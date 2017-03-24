@@ -19,6 +19,11 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lbl_discounted: UILabel!
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        CalcData.shared.price = Float(field_price.text!)!
+        CalcData.shared.discount_flat = Float(field_discount_flat.text!)!
+        CalcData.shared.discount_pct = Float(field_discount_pct.text!)! / 100
+        CalcData.shared.discount_pct_other = Float(field_discount_pct_other.text!)! / 100
+        CalcData.shared.tax_pct = Float(field_tax.text!)! / 100
         CalcData.shared.Calc()
         lbl_original.text = "$"+String(format: "%.2f", CalcData.shared.cost_original)
         lbl_discounted.text = "$"+String(format: "%.2f", CalcData.shared.cost_discounted)
