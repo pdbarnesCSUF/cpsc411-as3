@@ -41,17 +41,30 @@ class GraphView: UIView {
         let rightGuide:CGFloat = screenWidth - paddingGuide
         let topGuide:CGFloat = 64.0 + paddingGuide //80
         let bottomGuide:CGFloat = screenHeight - paddingGuide
-        
+        let hzHalfGuide:CGFloat = screenWidth / 2
+        let vtTotalHeight = UIScreen.main.bounds.height - (topGuide + bottomGuide)
         //context.setFillColor(red: 0.0, green: 1.0, blue: 0.5, alpha: 1.0)
-        context.setFillColor(0xFC3593)
-        
+        context.setFillColor(0x000000)
+        context.fill(CGRect(x:leftGuide,
+                            y:topGuide,
+                            width:screenWidth-(paddingGuide*2),
+                            height:vtTotalHeight))
         //these values are all in pts not px
-        //draw rect
-        context.fill(CGRect(x:leftGuide,y:topGuide,width:screenWidth - (leftGuide+rightGuide),height:screenHeight - (topGuide+bottomGuide)))
-        context.fill(CGRect(x:130,y:260,width:100,height:200))
-        //draw text
-        let myText = "Cheese on Tato Tavern"
-        let subText = "Coric City"
+        //draw rect total
+        context.setFillColor(0xFC3593)
+        context.fill(CGRect(x:leftGuide,y:topGuide,width:(screenWidth - (leftGuide+rightGuide)),height:screenHeight - (topGuide+bottomGuide)))
+        //draw save rect
+        context.setFillColor(0x550022)
+        let savedHeight = vtTotalHeight * CGFloat(CalcData.shared.cost_saved / CalcData.shared.cost_original)
+        context.fill(CGRect(x:hzHalfGuide,y:topGuide,width:hzHalfGuide - rightGuide,height:savedHeight))
+        //draw pay rect
+        context.setFillColor(0xAF8800)
+        //let discountedHeight = vtTotalHeight * CGFloat(CalcData.shared.cost_discounted / CalcData.shared.cost_original)
+        context.fill(CGRect(x:hzHalfGuide,y:topGuide+savedHeight,width:hzHalfGuide - rightGuide,height:vtTotalHeight - savedHeight))
+        //draw text-----
+        let originalText = "Original:" + String(format: "%.2f", CalcData.shared.cost_original)
+        let savedText = "Saved:" + String(format: "%.2f", CalcData.shared.cost_saved)
+        let discountedText = "Pay:" + String(format: "%.2f", CalcData.shared.cost_discounted)
         
         //NS is NextStep
         //Text Attributes
@@ -60,9 +73,13 @@ class GraphView: UIView {
             NSForegroundColorAttributeName: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         ]
         
-        myText.draw(at: CGPoint(x: leftGuide + paddingGuide, y:topGuide + paddingGuide),
+        originalText.draw(at: CGPoint(  x: leftGuide + paddingGuide,
+                                        y:topGuide + paddingGuide),
                     withAttributes: textAttributes)
-        subText.draw(at: CGPoint(x: leftGuide + paddingGuide, y:topGuide + (paddingGuide*2)))
+        savedText.draw(at: CGPoint( x: hzHalfGuide + paddingGuide,
+                                    y:topGuide + paddingGuide))
+        discountedText.draw(at: CGPoint(    x: hzHalfGuide + paddingGuide,
+                                            y: (topGuide+savedHeight) + paddingGuide))
     }
     
     
