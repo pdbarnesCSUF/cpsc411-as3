@@ -18,7 +18,23 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lbl_original: UILabel!
     @IBOutlet weak var lbl_discounted: UILabel!
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    @IBAction func out_price(_ sender: Any) {
+        updateCalc()
+    }
+    @IBAction func out_disc_flat(_ sender: Any) {
+        updateCalc()
+    }
+    @IBAction func out_disc_pct(_ sender: Any) {
+        updateCalc()
+    }
+    @IBAction func out_disc_pct_other(_ sender: Any) {
+        updateCalc()
+    }
+    @IBAction func out_tax(_ sender: Any) {
+        updateCalc()
+    }
+    
+    func updateCalc() {
         CalcData.shared.price = Float(field_price.text!)!
         CalcData.shared.discount_flat = Float(field_discount_flat.text!)!
         CalcData.shared.discount_pct = Float(field_discount_pct.text!)! / 100
@@ -56,6 +72,7 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate {
 //swipe function
     func handleSwipe(_ sender:UIGestureRecognizer)
     {
+        updateCalc()
         self.performSegue(withIdentifier: "showResults", sender: self)
     }
 
