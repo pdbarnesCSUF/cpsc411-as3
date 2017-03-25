@@ -22,6 +22,8 @@ class CalcData
         cost_original = 0;
         cost_discounted = 0;
         cost_saved = 0;
+        pct_saved = 0;
+        pct_discounted = 0;
     }
     //input---
     public var price:Float
@@ -34,8 +36,10 @@ class CalcData
     //output---
     public var cost_original: Float
     public var cost_discounted: Float
+    public var pct_discounted: Float
     //saved amount (original - discounted)
     public var cost_saved: Float
+    public var pct_saved: Float
     
     //calc
     public func Calc()
@@ -53,5 +57,7 @@ class CalcData
             cost_discounted += tax
         }
         cost_saved = cost_original - cost_discounted
+        pct_saved = cost_saved / cost_original
+        pct_discounted = 1.0 - pct_saved
     }
 }

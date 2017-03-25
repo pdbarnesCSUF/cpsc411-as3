@@ -35,32 +35,40 @@ class GraphView: UIView {
         //CG prefix is like OPENGLprefix stuff
         let context:CGContext = UIGraphicsGetCurrentContext()!
         let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = UIScreen.main.bounds.height
+        //let screenHeight = UIScreen.main.bounds.height
         let paddingGuide:CGFloat = 16.0
         let leftGuide:CGFloat = paddingGuide
         let rightGuide:CGFloat = screenWidth - paddingGuide
         let topGuide:CGFloat = 64.0 + paddingGuide //80
-        let bottomGuide:CGFloat = screenHeight - paddingGuide
-        let hzHalfGuide:CGFloat = screenWidth / 2
-        let vtTotalHeight = UIScreen.main.bounds.height - (topGuide + bottomGuide)
+        //let bottomGuide:CGFloat = screenHeight - paddingGuide
+        let insideWidth:CGFloat = screenWidth - (leftGuide + rightGuide)
+        //let hzHalfGuide:CGFloat = screenWidth / 2
+        //let vtTotalHeight = UIScreen.main.bounds.height - (topGuide + bottomGuide)
         //context.setFillColor(red: 0.0, green: 1.0, blue: 0.5, alpha: 1.0)
+        
+        
+        //i got this to draw.... yet at some point it stopped drawing... i dont get it T_T
+        //older parts that draw suddenly stopped when i didnt edit them too??
+        //draw rect total-----
         context.setFillColor(0x000000)
         context.fill(CGRect(x:leftGuide,
                             y:topGuide,
-                            width:screenWidth-(paddingGuide*2),
-                            height:vtTotalHeight))
+                            width:insideWidth,
+                            height:100))
         //these values are all in pts not px
-        //draw rect total
+        //draw rect discounted-----
         context.setFillColor(0xFC3593)
-        context.fill(CGRect(x:leftGuide,y:topGuide,width:(screenWidth - (leftGuide+rightGuide)),height:screenHeight - (topGuide+bottomGuide)))
-        //draw save rect
+        context.fill(CGRect(x:leftGuide,
+                            y:topGuide + 100,
+                            width:insideWidth * CGFloat(CalcData.shared.pct_discounted),
+                            height:100))
+        //draw save rect-----
         context.setFillColor(0x550022)
-        let savedHeight = vtTotalHeight * CGFloat(CalcData.shared.cost_saved / CalcData.shared.cost_original)
-        context.fill(CGRect(x:hzHalfGuide,y:topGuide,width:hzHalfGuide - rightGuide,height:savedHeight))
-        //draw pay rect
-        context.setFillColor(0xAF8800)
-        //let discountedHeight = vtTotalHeight * CGFloat(CalcData.shared.cost_discounted / CalcData.shared.cost_original)
-        context.fill(CGRect(x:hzHalfGuide,y:topGuide+savedHeight,width:hzHalfGuide - rightGuide,height:vtTotalHeight - savedHeight))
+        context.fill(CGRect(x:leftGuide + (insideWidth * CGFloat(CalcData.shared.pct_discounted)),
+                            y:topGuide + 200,
+                            width:insideWidth * CGFloat(CalcData.shared.pct_saved),
+                            height:100))
+
         //draw text-----
         let originalText = "Original:" + String(format: "%.2f", CalcData.shared.cost_original)
         let savedText = "Saved:" + String(format: "%.2f", CalcData.shared.cost_saved)
@@ -76,10 +84,10 @@ class GraphView: UIView {
         originalText.draw(at: CGPoint(  x: leftGuide + paddingGuide,
                                         y:topGuide + paddingGuide),
                     withAttributes: textAttributes)
-        savedText.draw(at: CGPoint( x: hzHalfGuide + paddingGuide,
-                                    y:topGuide + paddingGuide))
-        discountedText.draw(at: CGPoint(    x: hzHalfGuide + paddingGuide,
-                                            y: (topGuide+savedHeight) + paddingGuide))
+        savedText.draw(at: CGPoint( x: leftGuide + paddingGuide,
+                                    y:topGuide + paddingGuide + 100))
+        discountedText.draw(at: CGPoint(    x: leftGuide + paddingGuide,
+                                            y: topGuide + paddingGuide + 200))
     }
     
     
